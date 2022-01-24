@@ -1,0 +1,22 @@
+name: Debug workflow dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      foo:
+        description: Foo?
+        required: true
+        type: string
+      bar:
+        description: Bar?
+        required: false
+        type: string
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - if: ${{ startsWith(inputs.foo, 'foo_') }}
+        run: echo 'Yes'
+      - if: ${{ !(startsWith(inputs.foo, 'foo_') }}
+        run: echo 'Nop'
