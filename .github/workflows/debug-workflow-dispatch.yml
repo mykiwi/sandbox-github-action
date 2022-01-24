@@ -7,11 +7,6 @@ on:
         description: Foo?
         required: true
         type: string
-      bar:
-        description: Bar?
-        required: false
-        type: string
-
 jobs:
   main:
     runs-on: ubuntu-latest
@@ -22,3 +17,4 @@ jobs:
         run: echo "Yes, start with foo_ => ${{ github.event.inputs.foo }}"
       - if: ${{ !(startsWith(github.event.inputs.foo, 'foo_')) }}
         run: echo "Nop, odes not start with foo_ => ${{ github.event.inputs.foo }}"
+      - run: echo "$INPUT_FOO"
