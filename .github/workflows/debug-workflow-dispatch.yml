@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: hmarr/debug-action@v2
       - run: env
-      - if: ${{ startsWith('foo_', github.event.inputs.foo) }}
+      - if: ${{ startsWith(github.event.inputs.foo, 'foo_') }}
         run: echo "Yes, start with foo_ => ${{ github.event.inputs.foo }}"
-      - if: ${{ !(startsWith('foo_', github.event.inputs.foo)) }}
-        run: echo "Nop, odes not start with foo_ => ${{ github.event.inputs.bar }}"
+      - if: ${{ !(startsWith(github.event.inputs.foo, 'foo_')) }}
+        run: echo "Nop, odes not start with foo_ => ${{ github.event.inputs.foo }}"
