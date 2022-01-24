@@ -20,6 +20,10 @@ jobs:
       - run: |
           echo "$INPUT_FOO"
           echo "${{ env.INPUT_FOO }}"
+          
+          echo $GITHUB_ENV
+          cat $GITHUB_ENV
+          
           echo "INPUT_FOO=${{ github.event.inputs.foo || 'nop' }}" >> $GITHUB_ENV
           
       - run: |
