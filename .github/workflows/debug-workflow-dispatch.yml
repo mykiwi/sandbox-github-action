@@ -17,4 +17,6 @@ jobs:
         run: echo "Yes, start with foo_ => ${{ github.event.inputs.foo }}"
       - if: ${{ !(startsWith(github.event.inputs.foo, 'foo_')) }}
         run: echo "Nop, odes not start with foo_ => ${{ github.event.inputs.foo }}"
-      - run: echo "$INPUT_FOO"
+      - run: |
+          echo "$INPUT_FOO"
+          echo "${{ env.INPUT_FOO }}"
