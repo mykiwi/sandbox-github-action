@@ -17,6 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - if: ${{ startsWith('foo_', inputs.foo) }}
-        run: echo 'Yes, start with foo_ => ${{ inputs.foo }}'
+        run: echo "Yes, start with foo_ => $INPUT_FOO"
       - if: ${{ !(startsWith('foo_', inputs.foo)) }}
-        run: echo 'Nop, odes not start with foo_ => ${{ inputs.foo }}'
+        run: echo "Nop, odes not start with foo_ => $INPUT_FOO"
