@@ -16,6 +16,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
+      - run: env
       - if: ${{ startsWith('foo_', inputs.foo) }}
         run: echo "Yes, start with foo_ => $INPUT_FOO"
       - if: ${{ !(startsWith('foo_', inputs.foo)) }}
