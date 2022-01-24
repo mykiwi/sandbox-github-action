@@ -16,7 +16,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - if: ${{ startsWith(inputs.foo, 'foo_') }}
+      - if: ${{ startsWith('foo_', inputs.foo) }}
         run: echo 'Yes'
       - if: ${{ !(startsWith(inputs.foo, 'foo_')) }}
         run: echo 'Nop'
