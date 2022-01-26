@@ -7,6 +7,12 @@ on:
         description: Foo?
         required: true
         type: string
+      bar:
+        description: something else
+        required: false
+        type: string
+        default: bar
+
 jobs:
   main:
     runs-on: ubuntu-latest
