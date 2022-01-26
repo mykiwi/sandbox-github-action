@@ -19,6 +19,8 @@ jobs:
     steps:
       - uses: hmarr/debug-action@v2
       - run: env
+      - run: |
+          echo "${{ github.event.inputs.bar != null ? github.event.inputs.bar : 'BAZ!' }}"
       - if: ${{ startsWith(github.event.inputs.foo, 'foo_') }}
         run: echo "Yes, start with foo_ => ${{ github.event.inputs.foo }}"
       - if: ${{ !(startsWith(github.event.inputs.foo, 'foo_')) }}
