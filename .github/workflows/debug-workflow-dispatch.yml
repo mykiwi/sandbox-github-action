@@ -21,6 +21,14 @@ jobs:
       - run: env
       - run: |
           echo "ab ${{ github.event.inputs.foo == 'foo' && format('...{0}...', 'ifTrue') || '' }} cd"
+
+      - uses: actions/checkout@v2
+      - run: |
+          pwd
+          cd foo/bar/baz
+          cat hello.txt
+      - run: |
+          pwd
       # - run: |
       #     echo "${{ github.event.inputs.bar || 'BAZ!' }}"
       # - if: ${{ startsWith(github.event.inputs.foo, 'foo_') }}
