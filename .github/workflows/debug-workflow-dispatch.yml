@@ -12,11 +12,20 @@ on:
         required: false
         type: string
         default: bar
+      id:
+        description: Id to find a specific workflow
+        required: false
+        type: string
 
 jobs:
   main:
     runs-on: ubuntu-latest
     steps:
+      -
+        name: ${{ github.event.inputs.id }}
+        run: |
+          echo "::notice title=Inputs::${{ toJSON(github.event.inputs) }}"
+
       - uses: hmarr/debug-action@v2
       - run: env
       - run: |
