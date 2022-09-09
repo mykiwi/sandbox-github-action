@@ -24,7 +24,11 @@ jobs:
       -
         name: ${{ github.event.inputs.id }}
         run: |
-          echo "::notice title=Inputs::${{ toJSON(github.event.inputs) }}"
+          cat > /tmp/inputs <<'EOF'
+            ${{ toJSON(github.event.inputs) }}
+            EOF
+          cat /tmp/inputs
+          cat /tmp/inputs | jq
 
       - uses: hmarr/debug-action@v2
       - run: env
