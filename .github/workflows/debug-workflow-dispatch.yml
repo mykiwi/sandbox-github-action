@@ -24,9 +24,9 @@ jobs:
       -
         name: ${{ github.event.inputs.id }}
         uses: actions/github-script
-        run: |
-          const inputs = `${{ toJSON(github.event.inputs) }}`
-          core.notice(inputs)
+        with:
+          script:
+            core.notice(`${{ toJSON(github.event.inputs) }}`)
 
       - uses: hmarr/debug-action@v2
       - run: env
