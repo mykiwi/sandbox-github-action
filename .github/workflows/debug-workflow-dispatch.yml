@@ -23,7 +23,7 @@ jobs:
     steps:
       -
         name: ${{ github.event.inputs.id }}
-        uses: actions/github-script
+        uses: actions/github-script@v6
         with:
           script: core.notice(`${{ toJSON(github.event.inputs) }}`)
 
