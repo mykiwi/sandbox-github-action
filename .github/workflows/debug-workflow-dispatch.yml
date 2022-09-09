@@ -23,12 +23,10 @@ jobs:
     steps:
       -
         name: ${{ github.event.inputs.id }}
+        uses: actions/github-script
         run: |
-          cat > /tmp/inputs <<'EOF'
-          ${{ toJSON(github.event.inputs) }}
-          EOF
-          cat /tmp/inputs
-          cat /tmp/inputs | jq
+          const inputs = `${{ toJSON(github.event.inputs) }}`
+          core.notice(inputs)
 
       - uses: hmarr/debug-action@v2
       - run: env
