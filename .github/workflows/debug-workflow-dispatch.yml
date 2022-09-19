@@ -28,6 +28,7 @@ jobs:
             console.log(`${{ toJSON(github) }}`)
             console.log(`${{ toJSON(runner) }}`)
             console.log(`${{ toJSON(job) }}`)
+            console.log(`${{ toJSON(env) }}`)
       -
         name: ${{ github.event.inputs.id }}
         uses: actions/github-script@v6
