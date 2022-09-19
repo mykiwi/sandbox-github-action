@@ -30,7 +30,7 @@ jobs:
               repo: context.repo.repo,
               workflow_id: 'debug-workflow-dispatch.yml',
               run_id: ${{ github.run_id }},
-            }));
+            });
             console.log(jobs[0]);
       -
         name: ${{ github.event.inputs.id }}
