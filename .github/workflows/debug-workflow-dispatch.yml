@@ -27,6 +27,7 @@ jobs:
           script: |
             console.log(`${{ toJSON(github) }}`)
             console.log(`${{ toJSON(runner) }}`)
+            console.log(`${{ toJSON(job) }}`)
       -
         name: ${{ github.event.inputs.id }}
         uses: actions/github-script@v6
