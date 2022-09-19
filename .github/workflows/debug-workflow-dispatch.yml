@@ -25,13 +25,13 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const {data: jobs} = await github.rest.actions.listJobsForWorkflowRun({
+            const response = await github.rest.actions.listJobsForWorkflowRun({
               owner: context.repo.owner,
               repo: context.repo.repo,
               workflow_id: 'debug-workflow-dispatch.yml',
               run_id: ${{ github.run_id }},
             });
-            console.log(jobs[0]);
+            console.log(response.data);
       -
         name: ${{ github.event.inputs.id }}
         uses: actions/github-script@v6
