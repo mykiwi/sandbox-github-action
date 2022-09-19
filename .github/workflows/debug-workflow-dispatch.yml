@@ -25,10 +25,12 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            console.log(`${{ toJSON(github) }}`)
-            console.log(`${{ toJSON(runner) }}`)
-            console.log(`${{ toJSON(job) }}`)
-            console.log(`${{ toJSON(env) }}`)
+            console.log(await github.rest.actions.listJobsForWorkflowRun({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'debug-workflow-dispatch.yml',
+              run_id: github.run_id,
+            }))
       -
         name: ${{ github.event.inputs.id }}
         uses: actions/github-script@v6
