@@ -26,7 +26,6 @@ jobs:
         with:
           script: |
             console.log(`${{ toJSON(github) }}`)
-            console.log(`${{ toJSON(context) }}`)
             console.log(`${{ toJSON(runner) }}`)
       -
         name: ${{ github.event.inputs.id }}
